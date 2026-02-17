@@ -79,9 +79,17 @@ function toggleComplete(id) {
     tasks = tasks.map(task =>
         task.id === id ? { ...task, completed: !task.completed } : task
     );
+
     saveTasks();
     renderTasks();
+
+    const completedTask = tasks.find(t => t.id === id);
+    if (completedTask.completed) {
+        showMotivation();
+        launchConfetti();
+    }
 }
+
 
 function saveTasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -131,3 +139,40 @@ function updateCount() {
 }
 
 renderTasks();
+function showMotivation() {
+    const popup = document.getElementById("motivationPopup");
+    const text = document.getElementById("motivationText");
+
+    const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+    text.textContent = motivationalQuotes[randomIndex];
+
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 3000);
+}
+
+function launchConfetti() {
+    const container = document.getElementById("confettiContainer");
+
+    for (let i = 0; i < 40; i++) {
+        const confetti = document.createElement("div");
+        confetti.classList.add("confetti-piece");
+
+        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.backgroundColor = getRandomColor();
+        confetti.style.animationDuration = (Math.random() * 1 + 1) + "s";
+
+        container.appendChild(confetti);
+
+        setTimeout(() => {
+            confetti.remove();
+        }, 1500);
+    }
+}
+
+function getRandomColor() {
+    const colors = ["#6c5ce7", "#00cec9", "#fdcb6e", "#d63031", "#00b894"];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
