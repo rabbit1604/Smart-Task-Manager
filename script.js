@@ -1,3 +1,25 @@
+const motivationalQuotes = [
+    "Yay! Keep going! 🚀",
+    "You're building excellent momentum!",
+    "Great job! One step closer!",
+    "Progress is important!",
+    "Consistency wins every time!",
+    "Small wins matter! 🎯",
+    "You’re doing amazing!",
+    "Discipline creates freedom.",
+    "Keep stacking those victories!",
+    "That’s how champions are built!",
+    "You showed up, that’s powerful!",
+    "Another task crushed! Let's go",
+    "Your future self is thanking you right now!",
+    "Momentum is on your side!",
+    "Stay focused. Stay sharp.",
+    "Execution beats intention!",
+    "You're proving yourself right!",
+    "Keep the fire alive 🔥",
+    "That’s the energy that brings progress!",
+    "Success is built like this."
+];
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 let currentFilter = "all";
 
