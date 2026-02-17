@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <title>Advanced Task Manager</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="container">
-    <h1>Task Manager</h1>
 
-    <div class="input-section">
-        <input type="text" id="taskInput" placeholder="Enter your task...">
-        
+    <div class="header">
+        <h1>Task Manager</h1>
+        <button id="themeToggle">🌙</button>
+    </div>
+
+    <!-- Add Task Section -->
+    <div class="section">
+        <h3>Add New Task</h3>
+        <label>Task Title</label>
+        <input type="text" id="taskInput" placeholder="Enter task...">
+
+        <label>Priority Level</label>
         <select id="prioritySelect">
             <option value="Low">Low</option>
             <option value="Medium" selected>Medium</option>
@@ -23,9 +31,13 @@
         <button id="addTaskBtn">Add Task</button>
     </div>
 
-    <div class="controls">
-        <input type="text" id="searchInput" placeholder="Search tasks...">
+    <!-- Controls Section -->
+    <div class="section">
+        <h3>Search & Filter</h3>
+        <label>Search Tasks</label>
+        <input type="text" id="searchInput" placeholder="Search...">
 
+        <label>Filter</label>
         <div class="filters">
             <button data-filter="all" class="active">All</button>
             <button data-filter="completed">Completed</button>
@@ -33,12 +45,22 @@
         </div>
     </div>
 
-    <div id="taskList"></div>
+    <!-- Task List -->
+    <div class="section">
+        <h3>Tasks</h3>
+        <div id="taskList"></div>
+    </div>
 
     <div class="footer">
         <span id="taskCount">0 tasks pending</span>
     </div>
+
 </div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
 
 <script src="script.js"></script>
 </body>
