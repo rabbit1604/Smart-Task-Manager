@@ -134,3 +134,56 @@ button:hover {
     font-weight: 500;
 }
 
+/* Motivation Popup */
+.motivation-popup {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--accent);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+    font-weight: 500;
+    z-index: 1000;
+}
+
+.motivation-popup.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Confetti */
+#confettiContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.confetti-piece {
+    position: absolute;
+    width: 8px;
+    height: 14px;
+    background: var(--accent);
+    opacity: 0.8;
+    animation: fall 1.5s linear forwards;
+    border-radius: 2px;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
